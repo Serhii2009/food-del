@@ -1,7 +1,7 @@
-/* eslint-disable no-unused-vars */
 import { assets } from '../../assets/assets'
 import './FoodItem.css'
 
+// eslint-disable-next-line no-unused-vars
 const FoodItem = ({ id, name, price, description, image }) => {
   return (
     <div className="food-item">

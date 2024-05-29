@@ -1,5 +1,4 @@
 import './ExploreMenu.css'
-import PropTypes from 'prop-types'
 import { menu_list } from '../../assets/assets'
 
 const ExploreMenu = ({ category, setCategory }) => {
@@ -37,11 +36,6 @@ const ExploreMenu = ({ category, setCategory }) => {
       <hr />
     </div>
   )
-}
-
-ExploreMenu.propTypes = {
-  category: PropTypes.string.isRequired,
-  setCategory: PropTypes.func.isRequired,
 }
 
 export default ExploreMenu
