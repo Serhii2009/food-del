@@ -3,7 +3,7 @@ import { assets } from '../../assets/assets'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-const Navbar = () => {
+const Navbar = ({ setshowLogin }) => {
   const [menu, setMenu] = useState('home')
 
   return (
@@ -51,7 +51,7 @@ const Navbar = () => {
           <div className="dot"></div>
         </div>
 
-        <button>sign in</button>
+        <button onClick={() => setshowLogin(true)}>sign in</button>
       </div>
     </div>
   )
