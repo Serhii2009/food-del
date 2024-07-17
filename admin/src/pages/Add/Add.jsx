@@ -4,9 +4,8 @@ import { useState } from 'react'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 
-const Add = () => {
-  const url = 'http://localhost:4000'
-
+// eslint-disable-next-line react/prop-types
+const Add = ({ url }) => {
   const [image, setImage] = useState(false)
   const [data, setData] = useState({
     name: '',
@@ -121,5 +120,9 @@ const Add = () => {
     </div>
   )
 }
+
+// Add.propTypes = {
+//   url: PropTypes.string.isRequired,
+// }
 
 export default Add
