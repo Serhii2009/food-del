@@ -20,9 +20,9 @@ const placeOrder = async (req, res) => {
 
     const line_items = req.body.items.map((item) => ({
       price_data: {
-        currency: 'inr',
+        currency: 'uah',
         product_data: { name: item.name },
-        unit_amount: item.price * 100 * 80,
+        unit_amount: item.price * 100 * 36,
       },
 
       quantity: item.quantity,
@@ -30,9 +30,9 @@ const placeOrder = async (req, res) => {
 
     line_items.push({
       price_data: {
-        currency: 'inr',
+        currency: 'uah',
         product_data: { name: 'Delivary Charges' },
-        unit_amount: 2 * 100 * 80,
+        unit_amount: 2 * 100 * 36,
       },
 
       quantity: 1,
@@ -52,4 +52,21 @@ const placeOrder = async (req, res) => {
   }
 }
 
-export { placeOrder }
+const verifyOrder = async (req, res) => {
+  const { orderId, success } = req.body
+
+  try {
+    if (success == 'true') {
+      await orderModel.findByIdAndUpdate(orderId, { payment: true })
+      res.json({ success: true, message: 'Paid' })
+    } else {
+      await orderModel.findByIdAndDelete(orderId)
+      res.json({ success: false, message: 'Not Paid' })
+    }
+  } catch (error) {
+    console.log(error)
+    res.json({ success: false, message: 'Error' })
+  }
+}
+
+export { placeOrder, verifyOrder }
