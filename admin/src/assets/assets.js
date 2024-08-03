@@ -14,4 +14,4 @@ export const assets ={
     parcel_icon
 }
 
-export const url = 'https://youtu.be/cVEOhgPziO8?si=C_0PinsjsaYtsFWl'
+export const url = 'https://food-del-backend-csxi.onrender.com'
